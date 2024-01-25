@@ -56,9 +56,20 @@ Firstly rename the iso file - appending ".bin" to the file name, i.e.
 - Ensure all the expected RAM and storage devices are detected in BIOS / UEFI
 - Save Changes and power off
 
-### DNS / IP Address Requirements
+### IP Address Requirements
 
-TODO
+Proxmox requires a static IP address.
+
+To reserve IP address for proxmox, boot the proxmox installer and wait for it to obtain an IP address via DHCP.
+On the DHCP server, look for the IP address that was assigned via DHCP and take note of the MAC address.
+If needed, change the IP that automatically assigned to a designed value & reserve that in DHCP server.
+
+### DNS Requirements
+
+Proxmox is easier to use when assigned a DNS name ( instead of needing to remember an IP address).
+
+Create a DNS entry for proxmox, for example "proxmox01.ozlan.org" , in "the" DNS server.
+For "ozlan.org" this means, adding an "A" record for doamin "ozlan.org" on Cloudflare [https://dash.cloudflare.com/](https://dash.cloudflare.com/) .
 
 ### Boot from the USB
 
@@ -71,4 +82,29 @@ TODO
 
 The ket part is to set the installation disk to ZFS Raid1 to ensure that the install & VMs are mirrored, so loss of one drive is less likely to result in system failure.
 
-### Setting up valid SSL Certificates
+Ensure the desired reserved IP address is assigned by DHCP during the proxmox installation.
+Specify the hostname as the DNS name specified above.
+
+### Post Install Configuration of Proxmox
+
+TODO
+
+#### Setting up valid SSL Certificates
+
+TODO 
+
+#### Set up SMTP notifications using google SMTP
+
+TODO
+
+#### Enable disk health monitoring
+
+https://pve.proxmox.com/pve-docs/chapter-sysadmin.html#_disk_health_monitoring
+
+#### Create a container running Proxmox backup Server
+
+TODO
+
+#### Configre backups on proxmox
+
+TODO
