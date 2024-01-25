@@ -10,3 +10,5 @@ layout: default
 [Hardware](/hardware)
 
 [Software](/software)
+
+[Dynamic DNS](/dynamicdns/)
